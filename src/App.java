@@ -14,22 +14,47 @@ public class App {
         System.out.println("Tic Tac Toe");
         System.out.println("-------------------------");
 
-        System.out.print("Inserisci la riga (1-3): ");
-        int riga = sc.nextInt();
+        for ( int mosse = 0; mosse < 9; mosse++) {
 
-        System.out.print("Inserisci la colonna (1-3): ");
-        int colonna = sc.nextInt();
+            System.out.println("\nMossa numero " + (mosse + 1));
 
-        campo[riga - 1][colonna - 1] = 'X';
+            boolean punto = false;
+            int riga = 0, colonna = 0;
 
-        // stampa campo
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(campo[i][j] + " ");
+            while (!punto) {
+                System.out.print("Inserisci la riga (1-3): ");
+                riga = sc.nextInt();
+
+                System.out.print("Inserisci la colonna (1-3): ");
+                colonna = sc.nextInt();
+
+                if (riga < 1 || riga > 3 || colonna < 1 || colonna > 3) {
+                    System.out.println("Coordinata non valida");
+                    continue;
+                }
+
+                if (campo[riga - 1][colonna - 1] != '-') {
+                    System.out.println("Questa posizione è già occupata");
+                    continue;
+                }
+
+                punto = true;
+
             }
-            System.out.println(" ");
+
+            campo[riga - 1][colonna - 1] = 'X';
+
+            // stampa campo
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    System.out.print(campo[i][j] + " ");
+                }
+                System.out.println(" ");
+            }
+
         }
 
+        System.out.println("Partita terminata");
         sc.close();
 
     }
