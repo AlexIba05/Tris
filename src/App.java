@@ -14,7 +14,20 @@ public class App {
         System.out.println("Tic Tac Toe");
         System.out.println("-------------------------");
 
+        char Giocatore1= 'X';
+        char Giocatore2= 'O';
+        boolean turno= true;
+
         for ( int mosse = 0; mosse < 9; mosse++) {
+
+            char turnoCorrente;
+
+            if (turno) {
+                turnoCorrente= Giocatore1;
+            }
+            else {
+                turnoCorrente= Giocatore2;
+            }
 
             System.out.println("\nMossa numero " + (mosse + 1));
 
@@ -42,7 +55,8 @@ public class App {
 
             }
 
-            campo[riga - 1][colonna - 1] = 'X';
+
+            campo[riga - 1][colonna - 1] = turnoCorrente;
 
             // stampa campo
             for (int i = 0; i < 3; i++) {
@@ -51,6 +65,8 @@ public class App {
                 }
                 System.out.println(" ");
             }
+
+            turno= !turno;
 
         }
 
