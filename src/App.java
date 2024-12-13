@@ -34,10 +34,10 @@ public class App {
                 // turno del giocatore
                 System.out.println("Mossa numero " + (mosse + 1) + " - Giocatore Utente (" + turnoCorrente + ")");
 
-                boolean punto = false;
+                boolean inputValido = false;
                 int riga = 0, colonna = 0;
                 // Controllo input
-                while (!punto) {
+                while (!inputValido) {
                     System.out.print("Inserisci la riga (1-3): ");
                     riga = sc.nextInt();
 
@@ -54,13 +54,11 @@ public class App {
                         continue;
                     }
 
-                    punto = true;
-
+                    campo[riga - 1][colonna - 1] = turnoCorrente;
+                    inputValido = true;
                 }
-
-                campo[riga - 1][colonna - 1] = turnoCorrente;
+                
             } else {
-
                 // Turno del PC
                 System.out.println("Mossa numero " + (mosse + 1) + " - Giocatore Computer (" + turnoCorrente + ")");
                 boolean sceltaPc = false;
